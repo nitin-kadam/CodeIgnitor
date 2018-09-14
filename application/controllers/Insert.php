@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Insert extends CI_Controller {
 
   // public function student() 
   // {
@@ -25,19 +25,29 @@ public function db1()
 
 {
 		
-	  	$this->load->database();
-	  	$sql = "insert into student (name,address) values ('nitin','pune')";
-	    $query =	$this->db->query($sql);
-		// var_dump($row);
-		foreach ($query->result() as $row)
-		{
-			echo $row->id; echo " ";
-			echo $row->name; echo " ";
-			echo $row->address; echo " ";
-			echo "<br>";	
-		}		
+      $this->load->database();
+            $data = array(
 
-		$this->index2("mydata from fucntion");
+
+        'name'=>"nitin",
+        'address'=> "Pune222"
+          );
+
+
+
+
+	  	// $sql = "select * from student ;";
+	    $query =	$this->db->insert('student',$data);
+		// var_dump($row);
+		// foreach ($query->result() as $row)
+		// {
+		// 	echo $row->id; echo " ";
+		// 	echo $row->name; echo " ";
+		// 	echo $row->address; echo " ";
+		// 	echo "<br>";	
+		// }		
+
+		// $this->index2("mydata from fucntion");
 
   }
 

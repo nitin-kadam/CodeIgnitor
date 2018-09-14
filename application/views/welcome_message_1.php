@@ -1,12 +1,14 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 // $this->load->helper('url');
 session_start();
 // include("alert_box.php");
 if(!empty($_SESSION['message']))
 {
     $msg=$_SESSION['message'];
-   echo "<script type='text/javascript'>
+     echo "<script type='text/javascript'>
     alert_box('".$msg."');
      </script>";  
        }
