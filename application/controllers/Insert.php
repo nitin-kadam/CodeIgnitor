@@ -21,6 +21,9 @@ class Insert extends CI_Controller {
   // }
 
 
+
+
+  
 public function db1()
 
 {
