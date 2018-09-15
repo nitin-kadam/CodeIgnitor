@@ -7,6 +7,7 @@
    </head> 
    <body> 
          <?php 
+         
             echo form_open('Stud_controller/add_student');
             echo form_label('Roll No.'); 
             echo form_input(array('id'=>'roll_no','name'=>'roll_no')); 

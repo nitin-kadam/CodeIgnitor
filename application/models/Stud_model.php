@@ -1,4 +1,6 @@
 <?php 
+     defined('BASEPATH') OR exit('No direct script access allowed');
+
    class Stud_Model extends CI_Model {
 	
       function __construct() { 
@@ -11,7 +13,7 @@
          } 
       } 
    
-      public function delete($roll_no) { 
+      public function delete($roll_no){ 
          if ($this->db->delete("stud", "roll_no = ".$roll_no)) { 
             return true; 
          } 

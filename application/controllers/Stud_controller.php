@@ -1,4 +1,5 @@
 <?php
+     defined('BASEPATH') OR exit('No direct script access allowed');
 
    class Stud_controller extends CI_Controller {
 	
@@ -22,7 +23,7 @@
          $this->load->helper('form'); 
          $this->load->view('Stud_add'); 
       } 
-  
+   //this section for insert
       public function add_student() { 
          $this->load->model('Stud_Model');
 			
@@ -32,13 +33,14 @@
          ); 
 			
          $this->Stud_Model->insert($data); 
-   
-         $query = $this->db->get("stud"); 
+         $query =$this->db->get("stud"); 
          $data['records'] = $query->result(); 
          $this->load->view('Stud_view',$data); 
       } 
-  
-      public function update_student_view() { 
+             
+         //this section for update
+
+       public function update_student_view() { 
          $this->load->helper('form'); 
          $roll_no = $this->uri->segment('3'); 
          $query = $this->db->get_where("stud",array("roll_no"=>$roll_no));
@@ -48,13 +50,12 @@
          $this->load->view('Stud_edit',$data); 
       } 
   
-    // this section for update
+
 
       public function update_student(){ 
-        var_dump("inupdate");
+     //var_dump("inupdate");
          $this->load->model('Stud_Model');
-			
-         $data = array( 
+			     $data =array( 
             'roll_no' => $this->input->post('roll_no'), 
             'name' => $this->input->post('name') 
          ); 
@@ -68,9 +69,9 @@
          $this->load->view('Stud_view',$data); 
       } 
 
-      // this section for delete
+      //this section for delete
   
-       public function delete_student() { 
+         public function delete_student() { 
          $this->load->model('Stud_Model'); 
          $roll_no = $this->uri->segment('3'); 
          $this->Stud_Model->delete($roll_no); 
